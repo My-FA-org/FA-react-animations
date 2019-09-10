@@ -2,6 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './landing-page.css'
 import './pixel-stars.css'
+import './ring.css'
+import './vanish-image.css'
+import vanish1 from '../../asset/image1.jpg';
+import vanish2 from '../../asset/noise.png'
 class LandingPage extends React.Component{
     constructor(props){
         super(props);
@@ -36,6 +40,54 @@ class LandingPage extends React.Component{
         });
     }
 
+    hasClassName = (inElement, inClassName) =>
+    {
+        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
+        return regExp.test(inElement.className);
+    }
+
+ addClassName = (inElement, inClassName) =>
+    {
+        if (!this.hasClassName(inElement, inClassName))
+            inElement.className = [inElement.className, inClassName].join(' ');
+    }
+
+    removeClassName = (inElement, inClassName) =>
+    {
+        if (this.hasClassName(inElement, inClassName)) {
+            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
+            var curClasses = inElement.className;
+            inElement.className = curClasses.replace(regExp, ' ');
+        }
+    }
+
+ toggleClassName = (inElement, inClassName) =>
+    {
+        if (this.hasClassName(inElement, inClassName))
+        this.removeClassName(inElement, inClassName);
+        else
+        this.addClassName(inElement, inClassName);
+    }
+
+    toggleShape = () =>{
+      var shape = document.getElementById('shape');
+      if (this.hasClassName(shape, 'ring')) {
+        this.removeClassName(shape, 'ring');
+        this.addClassName(shape, 'cube');
+      } else {
+        this.removeClassName(shape, 'cube');
+        this.addClassName(shape, 'ring');
+      }
+      
+      // Move the ring back in Z so it's not so in-your-face.
+      var stage = document.getElementById('stage');
+      if (this.hasClassName(shape, 'ring'))
+        stage.style.webkitTransform = 'translateZ(-200px)';
+      else
+        stage.style.webkitTransform = '';
+    }
+
+
     render(){
         return(
             <div className="landing-page">
@@ -43,11 +95,10 @@ class LandingPage extends React.Component{
                 <div id='stars2'></div>
                 <div id='stars3'></div>
                 <h2> Landing Page </h2>
-                <ul>
-                    <li>
-                        <Link to="/forms">Fill the form </Link>
-                    </li>
-                    </ul>
+                <div className="landing-controls">
+                    <input type="checkbox" name="" />
+                    <Link to="/forms">Fill the form </Link>                   
+                </div>
               
                     <div className="cont s--inactive">
                     <div className="cont__inner">
@@ -59,7 +110,28 @@ class LandingPage extends React.Component{
                                 <h2 className="el__heading">Section 1</h2>
                             </div>
                             <div className="el__content">
-                                <div className="el__text">Whatever</div>
+                                <div className="el__text ring-div">
+
+                                <div><button onClick={this.toggleShape}>Toggle Shape</button></div>
+                                    <div id="container">
+                                        <div id="stage">
+                                            <div id="shape" className="cube backfaces">
+                                                <div className="plane one">1</div>
+                                                <div className="plane two">2</div>
+                                                <div className="plane three">3</div>
+                                                <div className="plane four">4</div>
+                                                <div className="plane five">5</div>
+                                                <div className="plane six">6</div>
+                                                <div className="plane seven">7</div>
+                                                <div className="plane eight">8</div>
+                                                <div className="plane nine">9</div>
+                                                <div className="plane ten">10</div>
+                                                <div className="plane eleven">11</div>
+                                                <div className="plane twelve">12</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="el__close-btn"></div>
                             </div>
                             </div>
@@ -99,7 +171,12 @@ class LandingPage extends React.Component{
                                 <h2 className="el__heading">Section 3</h2>
                             </div>
                             <div className="el__content">
-                                <div className="el__text">Whatever</div>
+                                <div className="el__text image-box-div">
+                                <div className="imgBx">
+                                    <img src={vanish1} alt="" />
+                                    <img src={vanish2} alt="" />
+                                </div>                      
+                                </div>
                                 <div className="el__close-btn"></div>
                             </div>
                             </div>
