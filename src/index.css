@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.pre-landing-page, .forms-page, .animation-page, .not-found-page {
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+.main-form{
+    display: inline-block;
+    width: 500px;
+}
+
+.main-form .main-input{
+    width: 400px;
+}
+
+.main-form input{
+    margin: 10px 0px;
+    height: 30px;
+}
+
+.main-form-submit{
+    width: 300px;
+}
