@@ -16,3 +16,7 @@ code {
 .pre-landing-page, .forms-page, .animation-page, .not-found-page {
   text-align: center;
 }
+
+.react-h5-audio-player{
+  display: none !important;
+}
