@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import Landing from './components/landing/landing';
 import MyForm from './components/forms/form';
 import NotFound from './components/not-found/not-found';
-import {Route,Link,BrowserRouter as Router, Switch} from 'react-router-dom';
+import {Route,BrowserRouter as Router, Switch} from 'react-router-dom';
 import ThankYou from './components/thank-you/thank-you';
 
 const routing = (

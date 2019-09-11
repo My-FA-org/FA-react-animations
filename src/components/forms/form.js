@@ -11,15 +11,81 @@ class MyForm extends React.Component{
         this.state ={
             name:'',
             email:'',
-            comments:''
+            phone:'',
+            comments:'',
+            errorMsg:''
         }
         this.myInput = React.createRef();
         this.myEmail = React.createRef();
+        this.myPhone = React.createRef();
+        this.myComments = React.createRef();
     }
     
     onFormSubmitHandler = (event) =>{
         console.log("SUBMITTED");
         event.preventDefault();
+        let t = this;
+        let isValid = t.checkForFormValidation();
+        console.log("Valid",isValid);
+        let $body = document.querySelector('body');
+        if(isValid){
+            t.setState({errorMsg:''});            
+            $body.classList.remove("error")
+            t.postGhostRequest()
+        }else{
+            $body.classList.add("error")
+            setTimeout(()=>{
+                $body.classList.remove("error");
+            },5000);
+        }
+    }
+
+    checkForFormValidation = () =>{
+        let t = this;
+        let valid = true;
+        if(!t.state.name){
+            valid=false;
+            t.setState({errorMsg:'Name is missing'},()=>{
+                valid=false;
+            });
+        }else if(!t.state.email || !t.isValidEmail(t.state.email)){
+            valid=false;
+            t.setState({errorMsg:'Email is not valid'},()=>{
+                valid=false;
+            });
+        }else if(!t.state.phone && t.state.phone.length < 10){
+            valid=false;
+            t.setState({errorMsg:'Phone number is not valid'},()=>{
+                valid=false;
+            });
+        }else if(!t.state.comments){
+            valid=false;
+            t.setState({errorMsg:'Comments are missing'},()=>{
+                valid=false;
+            });
+        }  
+        return valid;      
+    }
+
+    isValidEmail = (email) => {
+        let mailformat = /^\w+([\.+-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if(!email.trim().match(mailformat)){
+          return false;
+        }else{
+          return true;
+        }
+      }
+
+    postGhostRequest = () =>{
+        let param = {
+            name:this.state.name,
+            email:this.state.email,
+            phone:this.state.phone,
+            comments:this.state.comments
+        }
+
+        console.log("Param",param);
+
     }
 
     componentDidMount(){
@@ -31,17 +97,22 @@ class MyForm extends React.Component{
             document.querySelector('.container').classList.remove('active');
           });
     }
-
-   
   
-  
-  changeNameHandler = (event) =>{
-    this.setState({name:event.target.value})
-  }
+    onNameChangeHandler = (event) =>{
+        this.setState({name:event.target.value})
+    }
 
-  changeMailHandler = (event) =>{
-    this.setState({email:event.target.value})
-  }
+    onEmailChangeHandler = (event) =>{
+        this.setState({email:event.target.value})
+    }
+
+    onPhoneChangeHandler = (event) =>{
+        this.setState({phone:event.target.value.replace(/[^\d]/g, '')})
+    }
+
+    onCommentsChangeHandler = (event) =>{
+        this.setState({comments:event.target.value})
+    }
 
   
     render(){
@@ -64,6 +135,20 @@ class MyForm extends React.Component{
                         voice="Google UK English Female"
                         text="Please enter your Email" >
                    </Speech>
+
+                   <Speech 
+                        autostart={false} 
+                        ref={this.myPhone}
+                        voice="Google UK English Female"
+                        text="Please enter your phone number" >
+                   </Speech>
+                  
+                   <Speech 
+                        autostart={false} 
+                        ref={this.myComments}
+                        voice="Google UK English Female"
+                        text="Please enter your comments here" >
+                   </Speech>
                 </div>
                 
 
@@ -72,7 +157,7 @@ class MyForm extends React.Component{
                 <div className="card"></div>
                 <div className="card main-card">
                     <div className="card-logo-div">
-                        <img src={logo}></img>
+                        <img src={logo} alt="logo.png"></img>
                     </div>
                     <h1 className="title">Click + to Register yourself</h1>
                     
@@ -84,27 +169,40 @@ class MyForm extends React.Component{
                     </h1>
                     <form>
                     <div className="input-container">
-                        <input type="text" id="name" required="required"/>
-                        <label for="name">Username</label>
+                        <input type="text" id="name" required="required"
+                        value={this.state.name}
+                        onChange={this.onNameChangeHandler}
+                        onFocus={()=>{ if(!this.state.name){this.myInput.current.play()} }}/>
+                        <label htmlFor="name">Name</label>
                         <div className="bar"></div>
                     </div>
                     <div className="input-container">
-                        <input type="email" id="email" required="required"/>
-                        <label for="email">Email</label>
+                        <input type="text" id="emailid" required="required"
+                        value={this.state.email}
+                        onChange={this.onEmailChangeHandler}
+                        onFocus={()=>{ if( !this.state.email ){this.myEmail.current.play()} }}/>
+                        <label htmlFor="emailid">Email</label>
                         <div className="bar"></div>
                     </div>
                     <div className="input-container">
-                        <input type="text" id="phone" required="required"/>
-                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" required="required"
+                        maxLength="10"
+                        value={this.state.phone}
+                        onChange={this.onPhoneChangeHandler}
+                        onFocus={ ()=>{ if(!this.state.phone){ this.myPhone.current.play() } }} />
+                        <label htmlFor="phone">Phone</label>
                         <div className="bar"></div>
                     </div>
                     <div className="input-container">
-                        <input type="text" id="comments" required="required"/>
-                        <label for="comments">Comments</label>
+                        <input type="text" id="comments" required="required"
+                        value={this.state.comments}
+                        onChange={this.onCommentsChangeHandler}
+                        onFocus={ ()=>{ if(!this.state.comments){ this.myComments.current.play() } }} />
+                        <label htmlFor="comments">Comments</label>
                         <div className="bar"></div>
                     </div>
                     <div className="button-container">
-                        <button><span>Submit</span></button>
+                        <button onClick={this.onFormSubmitHandler}><span>Submit</span></button>
                     </div>
                     </form>
                 </div>

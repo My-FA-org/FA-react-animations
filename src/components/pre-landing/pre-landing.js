@@ -76,7 +76,7 @@ class PreLandingPage extends React.Component {
                     <i></i>
                 </div>
                 <div className="brand-logo">
-                    <img src={logo}></img>
+                    <img src={logo} alt="logo.png"></img>
                 </div>
             </div>
         )
