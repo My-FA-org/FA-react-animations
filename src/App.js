@@ -2,10 +2,12 @@ import React from 'react';
 import './App.css';
 import PreLanding from './components/pre-landing/pre-landing'
 import AudioPlayer from "react-h5-audio-player";
-import sound from './asset/Keyboard-typing.mp3';
+import sound from './asset/Keyboard-typing.mp3'
+
+import ThankYou from './components/thank-you/thank-you'
 
 class App extends React.Component {
-  render(){
+  render() {
     return (
       <div className="App">
         {/* <ThankYou /> */}
@@ -14,18 +16,18 @@ class App extends React.Component {
           autoPlay={true}
           src={sound}
           onPlay={e => console.log("onPlay")}
-          // other props here
+        // other props here
         />
       </div>
     );
   }
 
-  componentDidMount(){
-    let t =this;
-    setTimeout(()=>{
-      t.props.history.push("/landing");
-    },5000)
-    }
+  componentDidMount() {
+    let t = this;
+    // setTimeout(() => {
+    //   t.props.history.push("/landing");
+    // }, 5000)
+  }
 }
 
 export default App;

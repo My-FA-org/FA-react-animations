@@ -340,3 +340,13 @@
    .hidden-submit{
       display: none;
    }
+
+
+   @media all and (max-width:767px){
+    .forms-page form {
+      left: 55%;
+    }
+    .forms-page ul.items { 
+      left: -32px;
+    }
+   }

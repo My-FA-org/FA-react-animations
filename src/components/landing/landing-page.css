@@ -968,3 +968,30 @@ height: 200px;
       .ring-div {
         position: relative;
       }
+
+      @media all and (max-width:992px){
+        .box {
+          left: 23%;
+          font-size: 14px;
+        }
+      }
+
+      @media all and (max-width:767px){
+        .btn:link, .btn:visited { 
+          padding:18px 27px;
+        }
+        .box {
+          left: 23%;
+          font-size: 14px;
+        }
+        .cont {
+          padding: 80px 15px;
+        }
+        .shining-text .shining-text-div p {
+          top: 32%;
+          font-size: 22pt;
+        }
+        .el__heading { 
+          font-size: 15px;
+        }
+      }

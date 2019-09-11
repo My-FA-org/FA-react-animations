@@ -119,3 +119,22 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+@media all and (max-width:992px){
+	.word-game .fixed {
+		font-size: 14px;
+	}
+	.word-game .word span {
+		font-size: 50px;
+	}
+}
+
+
+@media all and (max-width:767px){
+	.word-game .fixed {
+		font-size: 14px;
+	}
+	.word-game .word span {
+		font-size: 50px;
+	}
+}
