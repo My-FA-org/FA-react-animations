@@ -12,11 +12,14 @@
     height: 30px;
 }
 
+
 .main-form-submit{
     width: 300px;
 }
 
-
+.hidden-div{
+   display: none;
+}
 .large-header {
     position: relative;
     width: 100%;
