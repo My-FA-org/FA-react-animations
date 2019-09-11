@@ -7,6 +7,7 @@ import './vanish-image.css'
 import vanish1 from '../../asset/image1.jpg';
 import vanish2 from '../../asset/noise.png'
 import '../forms/bubble-background.css'
+import './word-game.css'
 class LandingPage extends React.Component{
     constructor(props){
         super(props);
@@ -50,6 +51,21 @@ class LandingPage extends React.Component{
                 document.querySelector('.el.s--active').classList.remove('s--active');
             });
         });
+
+        let spans = document.querySelectorAll('.word span');
+            spans.forEach((span, idx) => {
+                span.addEventListener('click', (e) => {
+                    e.target.classList.add('active');
+                });
+                span.addEventListener('animationend', (e) => {
+                    e.target.classList.remove('active');
+                });
+                
+                // Initial animation
+                setTimeout(() => {
+                    span.classList.add('active');
+                }, 750 * (idx+1))
+            });
     }
 
     hasClassName = (inElement, inClassName) =>
@@ -142,7 +158,7 @@ class LandingPage extends React.Component{
                             <div className="el__content">
                                 <div className="el__text ring-div">
 
-                                <div><button onClick={this.toggleShape}>Toggle Shape</button></div>
+                                <div className="box"><a href="#" className="btn btn-white btn-animation-1" onClick={this.toggleShape}>Toggle Shape</a></div>
                                     <div id="container">
                                         <div id="stage">
                                             <div id="shape" className="cube backfaces">
@@ -180,8 +196,17 @@ class LandingPage extends React.Component{
                             <div className="el__preview-cont">
                                 <h2 className="el__heading">Demo 2</h2>
                             </div>
-                            <div className="el__content">
-                                <div className="el__text">Whatever</div>
+                            <div className="el__content word-game">
+                                <div className="el__text">
+                                <h4 className="fixed">Click the letters!</h4>
+                                <div className="word">
+                                    <span>H</span>
+                                    <span>E</span>
+                                    <span>L</span>
+                                    <span>L</span>
+                                    <span>O</span>
+                                </div>
+                                </div>
                                 <div className="el__close-btn"></div>
                             </div>
                             </div>

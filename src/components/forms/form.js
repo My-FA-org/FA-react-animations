@@ -2,6 +2,7 @@ import React from 'react';
 import './forms.css'
 import Speech from 'react-speech';
 import '../landing/pixel-stars.css'
+import './show-success.css'
 class MyForm extends React.Component{
     constructor(props){
         super(props);
@@ -125,10 +126,19 @@ class MyForm extends React.Component{
                         <div className="forms-icon right button"><i className="arrow"></i></div>
                     </fieldset>
                     <fieldset className="thanks">
-                    <div className="forms-icon left"><i className="heart"></i></div>
-                        <p>Thanks for your time</p>
-                    <div className="forms-icon right"><i className="heart"></i></div>
-                </fieldset>
+                        <div id="success-box">
+                            <div className="dot"></div>
+                            <div className="dot two"></div>
+                            <div className="face">
+                                <div className="eye"></div>
+                                <div className="eye right"></div>
+                                <div className="mouth happy"></div>
+                            </div>
+                            <div className="shadow scale"></div>
+                            <div className="message"><h1 className="alert">Success!</h1><p>yay, everything is working.</p></div>
+                            <button className="button-box"><h1 className="green">continue</h1></button>
+                        </div>
+                    </fieldset>
                 </form>
 
 
