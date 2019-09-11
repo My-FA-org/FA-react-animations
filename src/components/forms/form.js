@@ -30,68 +30,10 @@ class MyForm extends React.Component{
           document.querySelector('.close').addEventListener('click', function() {
             document.querySelector('.container').classList.remove('active');
           });
-        // this.createDynamicForm();
-        // document.addEventListener("keydown", this.keyDown, false);
     }
 
-    createDynamicForm = () =>{    
-        this.init();
-        document.body.onmouseup = (event) => {
-            var target = event.target || event.toElement;
-            if (target.classList.contains("button")) this.next(target);
-        };
-    }
-
-
- init = () => {
-     // Generate li foreach fieldset
-    let form = document.querySelector('form'),
-        count = form.querySelectorAll('fieldset').length;
-    for (var i = 0; i < count; i++) {
-      var ul = document.querySelector('ul.items'),
-          li = document.createElement("li");  
-
-          ul.appendChild(li);
-    }
-    // Add class active on first li
-    ul.firstChild.classList.add('active');
-  }
+   
   
-  next = (target) => {
-    if(!target){
-        return false
-    }
-    let body = document.querySelector('body');
-    let input = target.previousElementSibling;
-    
-    // Check if input is empty
-    if (input.value === '') {
-      body.classList.add('error');
-    } else {
-      body.classList.remove('error');
-      
-      var enable = document.querySelector('form fieldset.enable'),
-          nextEnable = enable.nextElementSibling;
-          enable.classList.remove('enable');
-          enable.classList.add('disable');
-          nextEnable.classList.add('enable');
-      
-      // Switch active class on left list
-      var active = document.querySelector('ul.items li.active'),
-          nextActive = active.nextElementSibling;
-          active.classList.remove('active');
-          nextActive.classList.add('active');
-    }
-  }
-  
-  keyDown = (event) => {
-      let t = this;
-    var key = event.keyCode,
-        target = document.querySelector('fieldset.enable .button');
-    if (key === 13 || key === 9) {
-        t.next(target);
-    }
-  }
   
   changeNameHandler = (event) =>{
     this.setState({name:event.target.value})
@@ -162,7 +104,7 @@ class MyForm extends React.Component{
                         <div className="bar"></div>
                     </div>
                     <div className="button-container">
-                        <button><span>Next</span></button>
+                        <button><span>Submit</span></button>
                     </div>
                     </form>
                 </div>
