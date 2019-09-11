@@ -20,6 +20,7 @@ body{
     overflow: hidden;
     height: 700px;
     padding: 80px 70px;
+    margin-top:40px;
   }
   .cont__inner {
     position: relative;

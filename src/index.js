@@ -7,13 +7,15 @@ import Landing from './components/landing/landing';
 import MyForm from './components/forms/form';
 import NotFound from './components/not-found/not-found';
 import {Route,Link,BrowserRouter as Router, Switch} from 'react-router-dom';
+import ThankYou from './components/thank-you/thank-you';
 
 const routing = (
     <Router>
         <Switch>
             <Route exact path="/" component={App}></Route>
             <Route path="/landing" component={Landing}></Route>
-            <Route path="/forms" component={MyForm}></Route>.
+            <Route path="/forms" component={MyForm}></Route>
+            <Route path="/thank-you" component={ThankYou}></Route>
             <Route component={NotFound}/>
         </Switch>
     </Router>

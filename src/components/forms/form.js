@@ -1,7 +1,7 @@
 import React from 'react';
 import './forms.css'
 import Speech from 'react-speech';
-// import './bubble-background.css'
+import '../landing/pixel-stars.css'
 class MyForm extends React.Component{
     constructor(props){
         super(props);
@@ -10,7 +10,7 @@ class MyForm extends React.Component{
     }
     
     onFormSubmitHandler = (event) =>{
-        console.log("SUBMITTED")
+        console.log("SUBMITTED");
         event.preventDefault();
     }
 
@@ -29,13 +29,10 @@ class MyForm extends React.Component{
 
 
  init = () => {
-     console.log("init")
-    // Generate li foreach fieldset
+     // Generate li foreach fieldset
     let form = document.querySelector('form'),
         count = form.querySelectorAll('fieldset').length;
-        console.log(count)
     for (var i = 0; i < count; i++) {
-        console.log(i)
       var ul = document.querySelector('ul.items'),
           li = document.createElement("li");  
 
@@ -86,6 +83,9 @@ class MyForm extends React.Component{
     render(){
         return(
             <div className="forms-page">
+                <div id='stars'></div>
+                <div id='stars2'></div>
+                <div id='stars3'></div>
                {/* <h2> Form page</h2> */}
                {/* <form onSubmit={(event)=>this.onFormSubmitHandler(event)} className="main-form">
                    <input type="text" className="main-input" placeholder="Enter your name"
@@ -106,7 +106,7 @@ class MyForm extends React.Component{
                    </Speech>
                    <input type="submit" className="main-form-submit" />
                </form> */}
-                <h1>Step by step form</h1>
+                {/* <h1>Step by step form</h1> */}
                 <form onSubmit={(event)=>this.onFormSubmitHandler(event)}>
                     <ul className="items"></ul>
                     <fieldset className="username enable">
@@ -122,7 +122,7 @@ class MyForm extends React.Component{
                     <fieldset className="password">
                         <div className="forms-icon left"><i className="lock"></i></div>
                         <input type="password" name="password" placeholder="Password"/>
-                        <div className="forms-icon right button"><i className="arrow"></i><button type="submit" className="hidden-submit"></button></div>
+                        <div className="forms-icon right button"><i className="arrow"></i></div>
                     </fieldset>
                     <fieldset className="thanks">
                     <div className="forms-icon left"><i className="heart"></i></div>
@@ -131,18 +131,6 @@ class MyForm extends React.Component{
                 </fieldset>
                 </form>
 
-               {/* <div id="bubble-background-wrap">
-                    <div className="bubble x1"></div>
-                    <div className="bubble x2"></div>
-                    <div className="bubble x3"></div>
-                    <div className="bubble x4"></div>
-                    <div className="bubble x5"></div>
-                    <div className="bubble x6"></div>
-                    <div className="bubble x7"></div>
-                    <div className="bubble x8"></div>
-                    <div className="bubble x9"></div>
-                    <div className="bubble x10"></div>
-                </div> */}
 
             </div>
             );

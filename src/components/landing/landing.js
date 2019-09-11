@@ -6,6 +6,7 @@ import './ring.css'
 import './vanish-image.css'
 import vanish1 from '../../asset/image1.jpg';
 import vanish2 from '../../asset/noise.png'
+import '../forms/bubble-background.css'
 class LandingPage extends React.Component{
     constructor(props){
         super(props);
@@ -199,14 +200,14 @@ class LandingPage extends React.Component{
                             <div className="el__preview-cont">
                                 <h2 className="el__heading">Demo 3</h2>
                             </div>
-                            <div className="el__content">
+                            <div className="el__content content-white-back">
                                 <div className="el__text image-box-div">
                                 <div className="imgBx">
                                     <img src={vanish1} alt="" />
                                     <img src={vanish2} alt="" />
                                 </div>                      
                                 </div>
-                                <div className="el__close-btn"></div>
+                                <div className="el__close-btn close-black"></div>
                             </div>
                             </div>
                         </div>
@@ -229,6 +230,18 @@ class LandingPage extends React.Component{
                                     <div className="shining-text-div">
                                         <p>Shining Text Animation Effects</p>
                                     </div>  
+                                </div>
+                                <div id="bubble-background-wrap">
+                                    <div className="bubble x1"></div>
+                                    <div className="bubble x2"></div>
+                                    <div className="bubble x3"></div>
+                                    <div className="bubble x4"></div>
+                                    <div className="bubble x5"></div>
+                                    <div className="bubble x6"></div>
+                                    <div className="bubble x7"></div>
+                                    <div className="bubble x8"></div>
+                                    <div className="bubble x9"></div>
+                                    <div className="bubble x10"></div>
                                 </div>
                                 <div className="el__close-btn"></div>
                             </div>
@@ -265,7 +278,7 @@ class LandingPage extends React.Component{
                                     <span className="black-text-bounce">d</span>
                                     {/* <span>n</span> */}
                                     </h1>
-                                </div>
+                                </div>                               
                                 <div className="el__close-btn close-black"></div>
                             </div>
                             </div>
