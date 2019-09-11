@@ -2,7 +2,9 @@ import React from 'react';
 import './forms.css'
 import Speech from 'react-speech';
 import '../landing/pixel-stars.css'
-import './show-success.css'
+import './show-success.css';
+import './pen-form.css'
+import logo from '../../asset/logo.png'
 class MyForm extends React.Component{
     constructor(props){
         super(props);
@@ -21,8 +23,15 @@ class MyForm extends React.Component{
     }
 
     componentDidMount(){
-        this.createDynamicForm();
-        document.addEventListener("keydown", this.keyDown, false);
+        document.querySelector('.toggle').addEventListener('click', function() {
+            document.querySelector('.container').classList.add('active');
+          });
+          
+          document.querySelector('.close').addEventListener('click', function() {
+            document.querySelector('.container').classList.remove('active');
+          });
+        // this.createDynamicForm();
+        // document.addEventListener("keydown", this.keyDown, false);
     }
 
     createDynamicForm = () =>{    
@@ -114,47 +123,52 @@ class MyForm extends React.Component{
                         text="Please enter your Email" >
                    </Speech>
                 </div>
-                <form>
-                    <ul className="items"></ul>
-                    <fieldset className="name enable">
-                        <div className="forms-icon left"><i className="user"></i></div>
-                        <input type="text" name="name" placeholder="Enter your name"
-                         onFocus={()=>{ if(!this.state.name){this.myInput.current.play()} }}
-                         value={this.state.name}
-                         onChange={this.changeNameHandler}
-                         />
-                        <div className="forms-icon right button"><i className="arrow"></i></div>
-                    </fieldset>
-                    <fieldset className="email">
-                        <div className="forms-icon left"><i className="letter"></i></div>
-                        <input type="mail" name="email" placeholder="Email"
-                        onFocus={()=>{ if(!this.state.email && this.state.name){this.myEmail.current.play()} }}
-                        value={this.state.email}
-                        onChange={this.changeMailHandler}/>
-                        <div className="forms-icon right button"><i className="arrow"></i></div>
-                    </fieldset>
-                    <fieldset className="password">
-                        <div className="forms-icon left"><i className="lock"></i></div>
-                        <input type="password" name="password" placeholder="Password"/>
-                        <div className="forms-icon right button"><i className="arrow"></i></div>
-                    </fieldset>
-                    <fieldset className="thanks">
-                        <div id="success-box">
-                            <div className="dot"></div>
-                            <div className="dot two"></div>
-                            <div className="face">
-                                <div className="eye"></div>
-                                <div className="eye right"></div>
-                                <div className="mouth happy"></div>
-                            </div>
-                            <div className="shadow scale"></div>
-                            <div className="message"><h1 className="alert">Success!</h1><p>yay, everything looks good.</p></div>
-                            <button className="button-box" onClick={(event)=>this.onFormSubmitHandler(event)}><h1 className="green">continue</h1></button>
-                        </div>
-                    </fieldset>
-                </form>
+                
 
-
+            <div className="pen-form">
+            <div className="container">
+                <div className="card"></div>
+                <div className="card main-card">
+                    <div className="card-logo-div">
+                        <img src={logo}></img>
+                    </div>
+                    <h1 className="title">Click + to Register yourself</h1>
+                    
+                </div>
+                <div className="card alt">
+                    <div className="toggle"></div>
+                    <h1 className="title">Register
+                    <div className="close"></div>
+                    </h1>
+                    <form>
+                    <div className="input-container">
+                        <input type="text" id="name" required="required"/>
+                        <label for="name">Username</label>
+                        <div className="bar"></div>
+                    </div>
+                    <div className="input-container">
+                        <input type="email" id="email" required="required"/>
+                        <label for="email">Email</label>
+                        <div className="bar"></div>
+                    </div>
+                    <div className="input-container">
+                        <input type="text" id="phone" required="required"/>
+                        <label for="phone">Phone</label>
+                        <div className="bar"></div>
+                    </div>
+                    <div className="input-container">
+                        <input type="text" id="comments" required="required"/>
+                        <label for="comments">Comments</label>
+                        <div className="bar"></div>
+                    </div>
+                    <div className="button-container">
+                        <button><span>Next</span></button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            
             </div>
             );
     }
