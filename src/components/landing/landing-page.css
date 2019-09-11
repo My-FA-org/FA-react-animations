@@ -94,7 +94,7 @@ body{
 .cont {
     position: relative;
     overflow: hidden;
-    height: 700px;
+    height: 650px;
     padding: 80px 70px;
     margin-top:40px;
   }
@@ -243,8 +243,8 @@ body{
     position: absolute;
     right: 10px;
     top: 10px;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     opacity: 0;
     pointer-events: none;
     transition: all 0s 0.45s;

@@ -9,7 +9,7 @@ class PreLandingPage extends React.Component {
     render() {
         return (
             <div className="pre-landing-page">
-                <h1>Welcome to <span>Forge</span>ahead Solutions</h1>
+                <h1>Welcome to <span>Forge</span><span>ahead</span> Solutions</h1>
 
                 <div className='cloudy-speare-wrapper'>
                     <i></i>

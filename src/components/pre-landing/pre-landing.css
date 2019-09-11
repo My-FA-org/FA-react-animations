@@ -4,15 +4,19 @@
     white-space: nowrap;
     font-size: 42px;
     font-family: consolas;
-    border-right: 4px solid black;
+    border-right: 4px solid #fff;
     width: 31ch;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    color: #fff;
 }
-.pre-landing-page h1 span{
+.pre-landing-page h1 span:first-child{
     color:#ec5a23
+}
+.pre-landing-page h1 span:nth-child(2){
+    color: black;
 }
 @keyframes type {
     0% {

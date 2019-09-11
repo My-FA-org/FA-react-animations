@@ -24,9 +24,9 @@ class App extends React.Component {
 
   componentDidMount() {
     let t = this;
-    // setTimeout(() => {
-    //   t.props.history.push("/landing");
-    // }, 5000)
+    setTimeout(() => {
+      t.props.history.push("/landing");
+    }, 5000)
   }
 }
 
