@@ -58,3 +58,306 @@
        font-size: 3em;
     }
  }
+
+
+ /* Step Form Css */
+
+.forms-page fieldset {
+   box-shadow: 0 8px 10px #29a329;
+ }
+ 
+ body.error {
+   background: #f04000 !important;
+ }
+ body.error fieldset {
+   box-shadow: 0 8px 10px #bd3200;
+ }
+ 
+ .forms-page h1,.forms-page h2 {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   font-family: sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 2px;
+ }
+ 
+ .forms-page h1 {
+   top: 24px;
+   color: white;
+   font-size: 12px;
+ }
+ 
+ .forms-page h2 {
+   top: 44px;
+   color: white;
+   font-size: 10px;
+   opacity: 0.7;
+ }
+ 
+ .forms-page ul.items {
+   position: absolute;
+   width: 30px;
+   height: auto;
+   top: 50%;
+   left: -60px;
+   transform: translateY(-50%);
+ }
+ .forms-page ul.items li {
+   width: 8px;
+   height: 8px;
+   margin: 10px 0;
+   background: white;
+   border-radius: 50%;
+   opacity: 0.4;
+   cursor: pointer;
+   display: block;
+ }
+ .forms-page ul.items li.active {
+   opacity: 1;
+ }
+ 
+ .forms-page form {
+   position: absolute;
+   width: 300px;
+   height: 60px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+ .forms-page form fieldset {
+   position: absolute;
+   width: 300px;
+   height: 60px;
+   background: white;
+   border-radius: 3px;
+   opacity: 0;
+   transform: scale(0.2);
+   transition: all 0.4s ease-in-out;
+ }
+ .forms-page form fieldset input, form fieldset p {
+   display: inline-block;
+   width: 200px;
+   /* margin-left: 50px; */
+   color: #333333;
+   font-size: 16px;
+   letter-spacing: 1px;
+ }
+ .forms-page form fieldset p {
+   margin-top: 22px;
+   text-align: center;
+ }
+ .forms-page form fieldset input {
+   height: 40px;
+   margin-top: 8px;
+   border: none;
+   outline: none;
+ }
+ .forms-page form fieldset .forms-icon {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   top: 15px;
+   transition: all 0.4s ease;
+   z-index: 1;
+ }
+ .forms-page form fieldset .forms-icon i {
+   position: absolute;
+   display: block;
+ }
+ .forms-page form fieldset .forms-icon i::before,.forms-page  form fieldset .forms-icon i::after {
+   position: absolute;
+   content: "";
+ }
+ .forms-page form fieldset .forms-icon.left {
+   left: 10px;
+ }
+ .forms-page form fieldset .forms-icon.right {
+   right: 10px;
+   cursor: pointer;
+ }
+ .forms-page  form fieldset .forms-icon.button:hover {
+   background: #f2f2f2;
+   border-radius: 3px;
+   transition: all 0.4s ease;
+ }
+ .forms-page  form fieldset.enable {
+   z-index: 1;
+   opacity: 1;
+   transition: all 0.5s ease-out 0.2s;
+   transform: scale(1);
+   animation: enable 0.5s ease-out 0.2s;
+ }
+ .forms-page form fieldset.disable {
+   opacity: 0;
+   transition: all 0.3s ease-in;
+   transform: translateY(120px) scale(0.9);
+ }
+ 
+ body.error .forms-page fieldset {
+   transform-origin: 50% 100%;
+   animation: error11 0.3s ease-out;
+ }
+ 
+ @keyframes enable {
+   0% {
+     opacity: 0;
+     transform: scale(0.2);
+   }
+   60% {
+     transform: scale(1.1);
+   }
+   100% {
+     opacity: 1;
+     transform: scale(1);
+   }
+ }
+ @keyframes error11 {
+   0%, 50%, 100% {
+     transform: rotate(0deg);
+   }
+   25% {
+     transform: rotate(-3deg);
+   }
+   75% {
+     transform: rotate(3deg);
+   }
+ }
+ /**
+  * forms-icons in CSS, long as f****
+  */
+.forms-page .forms-icon .arrow {
+   width: 2px;
+   height: 17px;
+   top: 5px;
+   left: 14px;
+   background: #333333;
+ }
+.forms-page .forms-icon .arrow::before {
+   width: 7px;
+   height: 7px;
+   bottom: -1px;
+   left: -3px;
+   border-color: #333333;
+   border-right: 2px solid;
+   border-bottom: 2px solid;
+   transform: rotate(45deg);
+ }
+ 
+.forms-page .forms-icon .user {
+   width: 20px;
+   height: 10px;
+   bottom: 5px;
+   left: 5px;
+   box-shadow: 0 0 0 2px #333333 inset;
+   border-radius: 6px 6px 3px 3px;
+ }
+ .forms-page .forms-icon .user::before {
+   width: 10px;
+   height: 10px;
+   top: -9px;
+   left: 5px;
+   box-shadow: 0 0 0 2px #333333 inset;
+   border-radius: 50%;
+ }
+ 
+ .forms-page .forms-icon .letter {
+   width: 20px;
+   height: 12px;
+   top: 9px;
+   left: 5px;
+   box-shadow: 0 0 0 2px #333333 inset;
+   border-radius: 3px;
+ }
+ .forms-page .forms-icon .letter::before,.forms-page .forms-icon .letter::after {
+   width: 11px;
+   height: 2px;
+   top: 4px;
+   background: #333333;
+ }
+ .forms-page .forms-icon .letter::before {
+   left: 0;
+   transform: rotate(30deg);
+ }
+ .forms-page .forms-icon .letter::after {
+   right: 0;
+   transform: rotate(-30deg);
+ }
+ 
+ .forms-page .forms-icon .lock {
+   width: 20px;
+   height: 16px;
+   top: 9px;
+   left: 5px;
+   box-shadow: 0 0 0 2px #333333 inset;
+   border-radius: 3px;
+ }
+ .forms-page .forms-icon .lock::before {
+   width: 8px;
+   height: 8px;
+   top: -4px;
+   left: 4px;
+   border: 2px solid transparent;
+   border-top: 2px solid #333333;
+   border-right: 2px solid #333333;
+   border-radius: 50%;
+   transform: rotate(-45deg);
+ }
+ .forms-page .forms-icon .lock::after {
+   width: 6px;
+   height: 7px;
+   top: 4px;
+   left: 7px;
+   box-shadow: 0 0 0 2px #333333 inset;
+ }
+ 
+ .forms-page .forms-icon .heart {
+   width: 10px;
+   height: 10px;
+   top: 11px;
+   left: 7px;
+   background: #ff5233;
+   transform: rotate(45deg);
+ }
+ .forms-page .forms-icon .heart::before, .forms-icon .heart::after {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   background: #ff5233;
+ }
+ .forms-page .forms-icon .heart::before {
+   left: -6px;
+ }
+ .forms-page .forms-icon .heart::after {
+   top: -6px;
+ }
+ .forms-page form fieldset input:-internal-autofill-selected {
+    background-color: #fff !important;
+ }
+
+
+ /* Success Css */
+ #success-box {
+   position: absolute;
+   width: 35%;
+   height: 100%;
+   left: 12%;
+   background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);
+   border-radius: 20px;
+   box-shadow: 5px 5px 20px #cbcdd3;
+   perspective: 40px;
+   }
+
+#success-box .dot {
+   width: 8px;
+   height: 8px;
+   background: #FCFCFC;
+   border-radius: 50%;
+   position: absolute;
+   top: 4%;
+   right: 6%;
+   }
+
+   .hidden-submit{
+      display: none;
+   }

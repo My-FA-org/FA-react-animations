@@ -10,7 +10,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <ThankYou />
+        {/* <ThankYou /> */}
         <PreLanding />
         <AudioPlayer
           autoPlay={true}
@@ -26,8 +26,8 @@ class App extends React.Component {
     let t =this;
     setTimeout(()=>{
       t.props.history.push("/landing");
-  },5000)
-  }
+    },5000)
+    }
 }
 
 export default App;

@@ -15,6 +15,17 @@ class LandingPage extends React.Component{
     }
 
     componentDidMount = () =>{
+        let t = this;
+        let $body = document.querySelector("body");           
+        if(t.state.dayTheame){
+            $body.classList.remove('night-theame');
+            $body.classList.add('day-theame');                
+        }else{
+            $body.classList.remove('day-theame');
+            $body.classList.add('night-theame');                
+        }
+
+
         let $cont = document.querySelector('.cont');
         let $elsArr = [].slice.call(document.querySelectorAll('.el'));
         let $closeBtnsArr = [].slice.call(document.querySelectorAll('.el__close-btn'));
@@ -87,6 +98,21 @@ class LandingPage extends React.Component{
         stage.style.webkitTransform = '';
     }
 
+    changeTheame = () =>{
+        console.log("changed");
+        let t = this;
+        let isDayTheame = t.state.dayTheame;
+        let $body = document.querySelector("body");     
+        t.setState({dayTheame:!isDayTheame},()=>{            
+            if(t.state.dayTheame){
+                $body.classList.remove('night-theame');
+                $body.classList.add('day-theame');                
+            }else{
+                $body.classList.remove('day-theame');
+                $body.classList.add('night-theame');                
+            }
+        })
+    }
 
     render(){
         return(
@@ -94,10 +120,13 @@ class LandingPage extends React.Component{
                 <div id='stars'></div>
                 <div id='stars2'></div>
                 <div id='stars3'></div>
-                <h2> Landing Page </h2>
                 <div className="landing-controls">
-                    <input type="checkbox" name="" />
-                    <Link to="/forms">Fill the form </Link>                   
+                <div className="fLeft">
+                    <input title="Day / Night" className="theam-checkbox" onChange={()=>{ this.changeTheame()}} type="checkbox" name="" />
+                </div>
+                <div className="fRight">
+                    <Link to="/forms">Fill the form </Link>    
+                </div>               
                 </div>
               
                     <div className="cont s--inactive">
@@ -107,7 +136,7 @@ class LandingPage extends React.Component{
                             <div className="el__inner">
                             <div className="el__bg"></div>
                             <div className="el__preview-cont">
-                                <h2 className="el__heading">Section 1</h2>
+                                <h2 className="el__heading">Demo 1</h2>
                             </div>
                             <div className="el__content">
                                 <div className="el__text ring-div">
@@ -148,7 +177,7 @@ class LandingPage extends React.Component{
                             <div className="el__inner">
                             <div className="el__bg"></div>
                             <div className="el__preview-cont">
-                                <h2 className="el__heading">Section 2</h2>
+                                <h2 className="el__heading">Demo 2</h2>
                             </div>
                             <div className="el__content">
                                 <div className="el__text">Whatever</div>
@@ -168,7 +197,7 @@ class LandingPage extends React.Component{
                             <div className="el__inner">
                             <div className="el__bg"></div>
                             <div className="el__preview-cont">
-                                <h2 className="el__heading">Section 3</h2>
+                                <h2 className="el__heading">Demo 3</h2>
                             </div>
                             <div className="el__content">
                                 <div className="el__text image-box-div">
@@ -193,7 +222,7 @@ class LandingPage extends React.Component{
                             <div className="el__inner">
                             <div className="el__bg"></div>
                             <div className="el__preview-cont">
-                                <h2 className="el__heading">Section 4</h2>
+                                <h2 className="el__heading">Demo 4</h2>
                             </div>
                             <div className="el__content">
                                 <div className="el__text shining-text">
@@ -217,7 +246,7 @@ class LandingPage extends React.Component{
                             <div className="el__inner">
                             <div className="el__bg"></div>
                             <div className="el__preview-cont">
-                                <h2 className="el__heading">Section 5</h2>
+                                <h2 className="el__heading">Demo 5</h2>
                             </div>
                             <div className="el__content content-white-back">
                                 <div className="el__text dancing-text">
