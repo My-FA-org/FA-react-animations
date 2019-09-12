@@ -84,11 +84,32 @@ class MyForm extends React.Component {
             comments: this.state.comments
         }
 
+        let params1 = {
+            "title":this.state.name,
+            "mobiledoc": {"version":"0.3.1",
+                    "atoms":[],
+                    "cards":[],
+                    "markups":[],
+                    "sections":[[1,"p",[[0,[],0,`${JSON.stringify(param)}`]]]]
+                },
+                "status": "draft"
+        }
+
+        fetch("http://52.77.211.131:6969/generate/",
+        {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(params1)}).then((res)=>{
+            console.log("RES",res);
+        })
         console.log("Param", param);
-        this.setState({formSuccess:true});
+        // this.setState({formSuccess:true});
 
         setTimeout(()=>{
-            window.location.href = "/thank-you";
+            // window.location.href = "/thank-you";
         },2000)
     }
 
