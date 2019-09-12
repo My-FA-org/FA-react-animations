@@ -86,17 +86,12 @@ class MyForm extends React.Component {
 
         let params1 = {
             "title":this.state.name,
-            "mobiledoc": `{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"${JSON.stringify(param)}\"]]]]}`,
-            // "mobiledoc": {"version":"0.3.1",
-            //         "atoms":[],
-            //         "cards":[],
-            //         "markups":[],
-            //         "sections":[[1,"p",[[0,[],0,`${JSON.stringify(param)}`]]]]
-            //     },
-                "status": "draft"
+            // "mobiledoc": `{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"${ this.state.name+ this.state.email + this.state.phone + this.state.comments }\"]]]]}`,
+            "mobiledoc":`{\"version\":\"0.3.1\",\"markups\":[],\"atoms\":[],\"cards\":[[\"html\",{\"cardName\":\"html\",\"html\":\"<b>Name</b><br>${this.state.name} <br><hr><b>Email</b><br>${this.state.email} <br><hr><b>Phone number</b><br>${this.state.phone} <br><hr><b>Comments</b><br>${this.state.comments} <br> \"}]],\"sections\":[[10,0]]}`,
+            "status": "draft"
         }
 
-        fetch("http://52.77.211.131:6969/generate/",
+        fetch("http://54.251.141.240:6969/generate/",
         {
             method: 'post',
             headers: {

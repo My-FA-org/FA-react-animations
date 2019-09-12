@@ -298,10 +298,10 @@ class LandingPage extends React.Component {
                                                 {/* <span>n</span> */}
                                             </h1>
                                         </div>
-                                        <div class='box-demo-5'>
-                                            <div class='wave one1'></div>
-                                            <div class='wave two2'></div>
-                                            <div class='wave three3'></div>
+                                        <div className='box-demo-5'>
+                                            <div className='wave one1'></div>
+                                            <div className='wave two2'></div>
+                                            <div className='wave three3'></div>
                                         </div>
                                         <div className="el__close-btn close-black"></div>
                                     </div>
