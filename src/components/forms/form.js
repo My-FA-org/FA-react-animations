@@ -77,12 +77,7 @@ class MyForm extends React.Component {
     }
 
     postGhostRequest = () => {
-        let param = {
-            name: this.state.name,
-            email: this.state.email,
-            phone: this.state.phone,
-            comments: this.state.comments
-        }
+        let t= this;
 
         let params1 = {
             "title":this.state.name,
@@ -99,14 +94,24 @@ class MyForm extends React.Component {
                 // 'Content-Type': 'application/x-www-form-urlencoded',
             },
             body: JSON.stringify(params1)}).then((res)=>{
-            console.log("RES",res);
-        })
-        console.log("Param", param);
-        // this.setState({formSuccess:true});
+            console.log("RES",res.status);
+            if(res.status == 200){
+                t.setState({formSuccess:true});
 
-        setTimeout(()=>{
-            // window.location.href = "/thank-you";
-        },2000)
+                setTimeout(()=>{
+                    window.location.href = "/thank-you";
+                },2000)
+            }else{
+                t.setState({formSuccess:false});
+                t.setState({errorMsg:'Some error occured'});
+                let $body = document.querySelector('body');               
+                    $body.classList.add("error")
+                    setTimeout(() => {
+                        $body.classList.remove("error");
+                    }, 5000);               
+            }
+        })
+        
     }
 
     componentDidMount() {

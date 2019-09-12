@@ -11,7 +11,7 @@ export default () => {
         width={width}
         height={height}
       />
-      <div class="title">
+      <div className="title">
         <h1>thank<br/>you</h1>
       </div>
     </div>
