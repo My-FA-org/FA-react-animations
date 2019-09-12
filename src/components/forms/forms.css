@@ -17,6 +17,10 @@
     width: 300px;
 }
 
+.hide-me{
+   display: none;
+}
+
 .hidden-div{
    display: none;
 }

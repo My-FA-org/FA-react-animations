@@ -13,7 +13,8 @@ class MyForm extends React.Component {
             email: '',
             phone: '',
             comments: '',
-            errorMsg: ''
+            errorMsg: '',
+            formSuccess:false,
         }
         this.myInput = React.createRef();
         this.myEmail = React.createRef();
@@ -22,7 +23,6 @@ class MyForm extends React.Component {
     }
 
     onFormSubmitHandler = (event) => {
-        console.log("SUBMITTED");
         event.preventDefault();
         let t = this;
         let isValid = t.checkForFormValidation();
@@ -85,7 +85,11 @@ class MyForm extends React.Component {
         }
 
         console.log("Param", param);
+        this.setState({formSuccess:true});
 
+        setTimeout(()=>{
+            window.location.href = "/thank-you";
+        },2000)
     }
 
     componentDidMount() {
@@ -152,7 +156,7 @@ class MyForm extends React.Component {
                 </div>
 
 
-                <div className="pen-form">
+                <div className={`pen-form ${ (this.state.formSuccess) ? "hide-me" : "" }`}>
                     <div className="container">
                         <div className="card"></div>
                         <div className="card main-card">
@@ -169,7 +173,7 @@ class MyForm extends React.Component {
                             </h1>
                             <form>
                                 <div className="input-container">
-                                    <input type="text" id="name" required="required"
+                                    <input type="text" id="name" autoComplete="false" required="required"
                                         value={this.state.name}
                                         onChange={this.onNameChangeHandler}
                                         onFocus={() => { if (!this.state.name) { this.myInput.current.play() } }} />
@@ -177,7 +181,7 @@ class MyForm extends React.Component {
                                     <div className="bar"></div>
                                 </div>
                                 <div className="input-container">
-                                    <input type="text" id="emailid" required="required"
+                                    <input type="text" id="emailid" autoComplete="false" required="required"
                                         value={this.state.email}
                                         onChange={this.onEmailChangeHandler}
                                         onFocus={() => { if (!this.state.email) { this.myEmail.current.play() } }} />
@@ -185,7 +189,7 @@ class MyForm extends React.Component {
                                     <div className="bar"></div>
                                 </div>
                                 <div className="input-container">
-                                    <input type="text" id="phone" required="required"
+                                    <input type="text" id="phone" autoComplete="false" required="required"
                                         maxLength="10"
                                         value={this.state.phone}
                                         onChange={this.onPhoneChangeHandler}
@@ -194,7 +198,7 @@ class MyForm extends React.Component {
                                     <div className="bar"></div>
                                 </div>
                                 <div className="input-container">
-                                    <input type="text" id="comments" required="required"
+                                    <input type="text" id="comments" autoComplete="false" required="required"
                                         value={this.state.comments}
                                         onChange={this.onCommentsChangeHandler}
                                         onFocus={() => { if (!this.state.comments) { this.myComments.current.play() } }} />
@@ -208,7 +212,7 @@ class MyForm extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="success-msg">
+                <div className={`success-msg ${ (this.state.formSuccess) ? ""  : "hide-me" }`}>
                     <div id="success-box">
                         <div className="dot"></div>
                         <div className="dot two"></div>
@@ -218,8 +222,8 @@ class MyForm extends React.Component {
                             <div className="mouth happy"></div>
                         </div>
                         <div className="shadow scale"></div>
-                        <div className="message"><h1 className="alert">Success!</h1><p>yay, everything is working.</p></div>
-                        <button className="button-box"><h1 className="green">continue</h1></button>
+                        <div className="message"><h1 className="alert">Success!</h1><p>Yay, Your details are recorded.</p></div>
+                        {/* <button className="button-box"><h1 className="green">continue</h1></button> */}
                     </div>
                 </div>
 
@@ -232,8 +236,8 @@ class MyForm extends React.Component {
                         <div className="mouth sad"></div>
                     </div>
                     <div className="shadow move"></div>
-                    <div className="message"><h1 className="alert">Error!</h1><p>oh no, something went wrong.</p></div>
-                    <button className="button-box"><h1 className="red">try again</h1></button>
+                    <div className="message"><h1 className="alert">Error!</h1><p>Oh no, {this.state.errorMsg}.</p></div>
+                    {/* <button className="button-box"><h1 className="red">try again</h1></button> */}
                 </div>
 
                 <div className="brand-logo">

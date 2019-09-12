@@ -113,7 +113,6 @@ class LandingPage extends React.Component {
     }
 
     changeTheame = () => {
-        console.log("changed");
         let t = this;
         let isDayTheame = t.state.dayTheame;
         let $body = document.querySelector("body");
@@ -250,7 +249,7 @@ class LandingPage extends React.Component {
                                     <div className="el__content">
                                         <div className="el__text shining-text">
                                             <div className="shining-text-div">
-                                                <p>Shining Text Animation Effects</p>
+                                                <p>Practice makes perfect.</p>
                                             </div>
                                         </div>
                                         <div id="bubble-background-wrap">
@@ -283,7 +282,7 @@ class LandingPage extends React.Component {
                                     <div className="el__preview-cont">
                                         <h2 className="el__heading">Demo 5</h2>
                                     </div>
-                                    <div className="el__content content-white-back">
+                                    <div className="el__content content-blue-back">
                                         <div className="el__text dancing-text">
                                             <h1>
                                                 <span className="red-text-bounce">f</span>
@@ -298,6 +297,11 @@ class LandingPage extends React.Component {
                                                 <span className="black-text-bounce">d</span>
                                                 {/* <span>n</span> */}
                                             </h1>
+                                        </div>
+                                        <div class='box-demo-5'>
+                                            <div class='wave one1'></div>
+                                            <div class='wave two2'></div>
+                                            <div class='wave three3'></div>
                                         </div>
                                         <div className="el__close-btn close-black"></div>
                                     </div>
