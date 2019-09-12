@@ -694,6 +694,7 @@ height: 200px;
     margin: auto;
     display: block;
     text-align: center;
+    z-index: 1;
   }
   
   .dancing-text h1 span {
