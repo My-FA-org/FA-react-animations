@@ -53,7 +53,7 @@ class MyForm extends React.Component {
             t.setState({ errorMsg: 'Email is not valid' }, () => {
                 valid = false;
             });
-        } else if (!t.state.phone && t.state.phone.length < 10) {
+        } else if (!t.state.phone || t.state.phone.length < 10) {
             valid = false;
             t.setState({ errorMsg: 'Phone number is not valid' }, () => {
                 valid = false;

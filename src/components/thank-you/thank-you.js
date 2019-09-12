@@ -1,6 +1,7 @@
 import React from 'react'
 import { useWindowSize } from 'react-use'
 import Confetti from 'react-confetti'
+import { Link } from 'react-router-dom';
 import './thank-you-page.css'
 
 export default () => {
@@ -14,6 +15,7 @@ export default () => {
       <div className="title">
         <h1>thank<br/>you</h1>
       </div>
+      <Link to="/">Go home</Link>
     </div>
     
     
