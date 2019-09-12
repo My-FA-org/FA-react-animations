@@ -86,12 +86,13 @@ class MyForm extends React.Component {
 
         let params1 = {
             "title":this.state.name,
-            "mobiledoc": {"version":"0.3.1",
-                    "atoms":[],
-                    "cards":[],
-                    "markups":[],
-                    "sections":[[1,"p",[[0,[],0,`${JSON.stringify(param)}`]]]]
-                },
+            "mobiledoc": `{\"version\":\"0.3.1\",\"atoms\":[],\"cards\":[],\"markups\":[],\"sections\":[[1,\"p\",[[0,[],0,\"${JSON.stringify(param)}\"]]]]}`,
+            // "mobiledoc": {"version":"0.3.1",
+            //         "atoms":[],
+            //         "cards":[],
+            //         "markups":[],
+            //         "sections":[[1,"p",[[0,[],0,`${JSON.stringify(param)}`]]]]
+            //     },
                 "status": "draft"
         }
 
