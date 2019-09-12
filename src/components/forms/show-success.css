@@ -1,12 +1,13 @@
 /* Success Msg */ 
-   .thanks { 
+   .success-msg { 
      height: 250px !important;
      width: 250px !important;
      border: 0px;
      background-color: transparent !important;
      margin-top: -75px;
+     margin: 0 auto;
      }
-  .thanks h1 {
+  .success-msg h1 {
     font-size: 0.9em;
     font-weight: 100;
     letter-spacing: 3px;
@@ -16,28 +17,28 @@
     text-transform: uppercase;
   }
   
-  .thanks .green {
+  .success-msg .green {
     color: #4ec07d;
   }
   
-  .thanks .red {
+  .success-msg .red {
     color: #e96075;
   }
   
-  .thanks .alert {
+  .success-msg .alert,#error-box .alert {
     font-weight: 700;
     letter-spacing: 5px;
   }
   
-  .thanks p {
-    margin-top: -5px;
+  .success-msg p,#error-box p {
+    margin-top: 5px;
     font-size: 0.5em;
     font-weight: 100;
     color: #5e5e5e;
     letter-spacing: 1px;
   }
   
-  .thanks button,.thanks .dot {
+  .success-msg button,.success-msg .dot {
     cursor: pointer;
   }
   
@@ -53,16 +54,41 @@
   }
   
   #error-box {
-    position: absolute;
-    width: 35%;
-    height: 100%;
-    right: 12%;
+    position: fixed;
+    width: 250px;
+    height: 250px;
     background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
     border-radius: 20px;
     box-shadow: 5px 5px 20px #cbcdd3;
-  }
+    bottom: 75px;
+    left: -275px;
+    -webkit-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	-ms-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+body.error #error-box {
+  left: 25px;
+  -webkit-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	-ms-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+}
   
-  .thanks .dot {
+#error-box .alert {
+  font-size: 0.9em;
+  font-weight: 100;
+  letter-spacing: 3px;
+  padding-top: 5px;
+  color: #FCFCFC;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  margin: 5px 0px;
+}
+  .success-msg .dot,#error-box .dot{
     width: 8px;
     height: 8px;
     background: #FCFCFC;
@@ -71,16 +97,16 @@
     top: 4%;
     right: 6%;
   }
-  .thanks .dot:hover {
+  .success-msg .dot:hover {
     background: #c9c9c9;
   }
   
-  .thanks .two {
+  .success-msg .two {
     right: 12%;
     opacity: .5;
   }
   
-  .thanks .face {
+  .success-msg .face {
     position: absolute;
     width: 22%;
     height: 22%;
@@ -93,19 +119,7 @@
     animation: bounce 1s ease-in infinite;
   }
   
-  .face2 {
-    position: absolute;
-    width: 22%;
-    height: 22%;
-    background: #FCFCFC;
-    border-radius: 50%;
-    border: 1px solid #777777;
-    top: 21%;
-    left: 37.5%;
-    z-index: 2;
-    animation: roll 3s ease-in-out infinite;
-  }
-  
+    
   .eye {
     position: absolute;
     width: 5px;
@@ -116,7 +130,7 @@
     left: 20%;
   }
   
-  .thanks .right {
+  .success-msg .right {
     left: 68%;
   }
   
@@ -162,7 +176,7 @@
     animation: move 3s ease-in-out infinite;
   }
   
-  .thanks  .message {
+  .success-msg  .message {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -170,7 +184,7 @@
     top: 47%;
   }
   
-  .thanks .button-box {
+  .success-msg .button-box {
     position: absolute;
     background: #FCFCFC;
     width: 50%;
@@ -183,7 +197,7 @@
     box-shadow: 2px 2px 10px rgba(119, 119, 119, 0.5);
     transition: all .5s ease-in-out;
   }
-  .thanks .button-box:hover {
+  .success-msg .button-box:hover {
     background: #efefef;
     transform: scale(1.05);
     transition: all .3s ease-in-out;
@@ -227,7 +241,7 @@
 
 
    /* Success Msg */
-   .thanks { 
+   .success-msg { 
      height: 250px !important;
      width: 250px !important;
      border: 0px;
@@ -235,7 +249,7 @@
      margin-top: -75px;
      border-radius: 40px !important;
      }
-  .thanks h1 {
+  .success-msg h1,#error-box h1 {
     font-size: 0.9em;
     font-weight: 100;
     letter-spacing: 3px;
@@ -245,71 +259,32 @@
     text-transform: uppercase;
   }
   
-  .thanks .green {
+  .success-msg .green {
     color: #4ec07d;
   }
   
-  .thanks .red {
+  #error-box .red {
     color: #e96075;
   }
   
-  .thanks .alert {
-    font-weight: 700;
-    letter-spacing: 5px;
-  }
   
-  .thanks p {
-    margin-top: -5px;
-    font-size: 0.5em;
-    font-weight: 100;
-    color: #5e5e5e;
-    letter-spacing: 1px;
-  }
   
-  .thanks button,.thanks .dot {
+  .success-msg button,.success-msg .dot {
     cursor: pointer;
   }
   
-  #success-box {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);
-    border-radius: 20px;
-    box-shadow: 5px 5px 20px #cbcdd3;
-    perspective: 40px;
-  }
+ 
   
-  #error-box {
-    position: absolute;
-    width: 35%;
-    height: 100%;
-    right: 12%;
-    background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
-    border-radius: 20px;
-    box-shadow: 5px 5px 20px #cbcdd3;
-  }
+
   
-  .thanks .dot {
-    width: 8px;
-    height: 8px;
-    background: #FCFCFC;
-    border-radius: 50%;
-    position: absolute;
-    top: 4%;
-    right: 6%;
-  }
-  .thanks .dot:hover {
-    background: #c9c9c9;
-  }
   
-  .thanks .two {
+  
+  .success-msg .two,#error-box .two {
     right: 12%;
     opacity: .5;
   }
   
-  .thanks .face {
+  .success-msg .face {
     position: absolute;
     width: 22%;
     height: 22%;
@@ -322,7 +297,7 @@
     animation: bounce 1s ease-in infinite;
   }
   
-  .face2 {
+  #error-box .face2 {
     position: absolute;
     width: 22%;
     height: 22%;
@@ -345,7 +320,7 @@
     left: 20%;
   }
   
-  .thanks .right {
+  .success-msg .right,#error-box .right {
     left: 68%;
   }
   
@@ -391,7 +366,7 @@
     animation: move 3s ease-in-out infinite;
   }
   
-  .thanks  .message {
+  .success-msg  .message,#error-box .message{
     position: absolute;
     width: 100%;
     text-align: center;
@@ -399,7 +374,7 @@
     top: 47%;
   }
   
-  .thanks .button-box {
+  .success-msg .button-box,#error-box .button-box {
     position: absolute;
     background: #FCFCFC;
     width: 50%;
@@ -412,7 +387,7 @@
     box-shadow: 2px 2px 10px rgba(119, 119, 119, 0.5);
     transition: all .5s ease-in-out;
   }
-  .thanks .button-box:hover {
+  .success-msg .button-box:hover {
     background: #efefef;
     transform: scale(1.05);
     transition: all .3s ease-in-out;

@@ -65,9 +65,14 @@
 
 
  /* Success Css */
+ .success-msg{
+    height: 250px;
+    width: 250px;
+    position: relative;
+ }
  #success-box {
    position: absolute;
-   width: 35%;
+   width: 100%;
    height: 100%;
    left: 12%;
    background: linear-gradient(to bottom right, #B0DB7D 40%, #99DBB4 100%);
@@ -98,4 +103,8 @@
     .forms-page ul.items { 
       left: -32px;
     }
+    .pen-form .container {
+       max-width: 340px;
+    }
+    
    }

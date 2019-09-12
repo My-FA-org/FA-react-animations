@@ -291,8 +291,6 @@ class LandingPage extends React.Component {
                                                 <span className="red-text-bounce">r</span>
                                                 <span className="red-text-bounce">g</span>
                                                 <span className="red-text-bounce">e</span>
-                                                {/* <span>a</span> */}
-                                                <br />
                                                 <span className="black-text-bounce">a</span>
                                                 <span className="black-text-bounce">h</span>
                                                 <span className="black-text-bounce">e</span>

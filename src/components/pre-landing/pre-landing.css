@@ -579,6 +579,11 @@ transform: translate3d(-4px, -4px, 570px);
 
 @media all and (max-width:767px) {
     .pre-landing-page h1 {
-      font-size: 22px;
+      font-size: 20px;
     }
+    .cloudy-speare-wrapper  {
+        position: fixed;
+
+    }
+    .brand-logo { bottom: 80px;}
   }
